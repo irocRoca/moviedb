@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import classes from "./MovieDetails.module.css";
 import Crew from "./Crew";
+import { getCrew, getMovie } from "../utils/fetch";
 
 const StyledButton = styled(Button)({
   backgroundColor: "#222831",
@@ -29,23 +30,9 @@ const MovieDetails = () => {
   const { type, id } = useParams();
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/${type}/${id}?api_key=11d05f8d97cd0a3dd2d4b69cdc854e0c&language=en-US`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMovie(data);
-      });
-  }, [type, id]);
-
-  useEffect(() => {
     const getData = async () => {
-      let movieRes = await fetch(
-        `https://api.themoviedb.org/3/${type}/${id}?api_key=11d05f8d97cd0a3dd2d4b69cdc854e0c&language=en-US`
-      );
-      let crewRes = await fetch(
-        `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=11d05f8d97cd0a3dd2d4b69cdc854e0c&language=en-US`
-      );
+      let movieRes = await getMovie(type, id);
+      let crewRes = await getCrew(type, id);
       movieRes = await movieRes.json();
       crewRes = await crewRes.json();
       setMovie(movieRes);

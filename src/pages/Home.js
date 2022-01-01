@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Hero from "../components/Hero";
 import ListMovies from "../components/ListMovies";
 import { Link, useHistory } from "react-router-dom";
+import { getDiscover, getPopular } from "../utils/fetch";
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
@@ -11,12 +12,8 @@ const Home = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const popular = await fetch(
-        "https://api.themoviedb.org/3/discover/movie?api_key=11d05f8d97cd0a3dd2d4b69cdc854e0c&language=en-US&sort_by=popularity.desc"
-      );
-      const discover = await fetch(
-        "https://api.themoviedb.org/3/trending/all/week?api_key=11d05f8d97cd0a3dd2d4b69cdc854e0c"
-      );
+      const popular = await getPopular();
+      const discover = await getDiscover();
       const data = await discover.json();
       const data2 = await popular.json();
       setTrending(data.results);
