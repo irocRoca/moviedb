@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  background: #393e46;
+  color: lightgray;
+  padding: 1.6rem;
+  margin-top: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin: 10px;
+  font-size: 18px !important;
+  color: lightgray;
+}
+
+.subtext {
+  font-size: 14px;
+  color: rgba(187, 187, 187, 0.87);
+}

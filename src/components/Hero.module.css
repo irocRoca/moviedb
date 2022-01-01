@@ -1,0 +1,49 @@
+.hero::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: linear-gradient(181deg, #00000078, #00000094);
+  top: 0;
+  width: 100%;
+  height: 70vh;
+  z-index: 10;
+}
+
+.hero > img {
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  margin-bottom: -4px;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.167;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin-bottom: 0.35em;
+}
+
+.description {
+  max-width: 300px;
+  color: white;
+  font-size: 0.85rem !important;
+}
+
+@media only screen and (min-width: 600px) {
+  .hero::after {
+    background: linear-gradient(181deg, #00000078, #0000008c, #00000094);
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .description {
+    max-width: 500px;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+}
