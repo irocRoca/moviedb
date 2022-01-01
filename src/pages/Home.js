@@ -14,8 +14,8 @@ const Home = () => {
     const getData = async () => {
       const popular = await getPopular();
       const discover = await getDiscover();
-      const data = await discover.json();
-      const data2 = await popular.json();
+      const data = await discover;
+      const data2 = await popular;
       setTrending(data.results);
       setMovies(data2.results);
     };

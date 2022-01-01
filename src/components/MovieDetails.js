@@ -33,8 +33,8 @@ const MovieDetails = () => {
     const getData = async () => {
       let movieRes = await getMovie(type, id);
       let crewRes = await getCrew(type, id);
-      movieRes = await movieRes.json();
-      crewRes = await crewRes.json();
+      movieRes = await movieRes;
+      crewRes = await crewRes;
       setMovie(movieRes);
       setCrew(crewRes);
     };
